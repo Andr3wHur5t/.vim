@@ -19,10 +19,15 @@ set backspace=indent,eol,start
 " Save
 map <C-s> <CR>
 
+" Split Configuration
+set splitright
+
 " Indentations Sane
-set tabstop=4
-set shiftwidth=4
-set softtabstop=0 noexpandtab
+" set tabstop=4
+" set shiftwidth=4
+" set softtabstop=0 noexpandtab
+
+set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
 
 " Wrapping Configuration
 set textwidth=120
