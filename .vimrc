@@ -16,6 +16,9 @@ set number
 " Backspace
 set backspace=indent,eol,start
 
+" Save
+map <C-s> :w<CR>
+
 " Indentations Sane
 set tabstop=4
 set shiftwidth=4
@@ -29,9 +32,17 @@ set wrap
 call plug#begin('~/.vim/plugged')
 
 " File Searching
- Plug 'wincent/command-t', {
-     \   'do': 'cd ruby/command-t && ruby extconf.rb && make'
-     \ }
+Plug 'wincent/command-t', { 'do': 'cd ruby/command-t && ruby extconf.rb && make' }
+map <C-l> :CommandT<CR>
+
+" Directory Structure
+Plug 'scrooloose/nerdtree'
+map <C-o> :NERDTreeToggle<CR>
+
+" > When no files specified open directory tree
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 
 " Git Diff Gutter
 Plug 'airblade/vim-gitgutter'
