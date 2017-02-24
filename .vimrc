@@ -14,7 +14,7 @@ set noic
 set number
 
 " Wrapping Configuration
-set tw=120 "max chars
+set textwidth=120
 set wrap
 
 " Enable Plugin loader
@@ -27,6 +27,20 @@ call plug#begin('~/.vim/plugged')
 
 " Git Diff Gutter
 Plug 'airblade/vim-gitgutter'
+
+" Auto Close
+Plug 'tpope/vim-surround'
+
+" White space tool
+Plug 'ntpeters/vim-better-whitespace'
+autocmd BufEnter * EnableStripWhitespaceOnSave
+
+" Coffee-Script Support
+Plug 'kchmck/vim-coffee-script'
+filetype plugin indent on
+
+" Go Support
+Plug 'fatih/vim-go'
 
 " Load Plugins
 call plug#end()
