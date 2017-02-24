@@ -11,7 +11,7 @@ cd ~ && git clone git@github.com:Andr3wHur5t/.vim.git
 Install Configuration:
 
 ```bash
-make install
+cd ~/.vim && make install
 ```
 ## Notes:
 
