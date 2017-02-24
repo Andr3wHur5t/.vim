@@ -16,8 +16,11 @@ set number
 " Backspace
 set backspace=indent,eol,start
 
+" Open New Buffer
+map <C-p> :enew<CR>
+
 " Save
-map <C-s> <CR>
+map <C-s> :w<CR>
 
 " Split Configuration
 set splitright
