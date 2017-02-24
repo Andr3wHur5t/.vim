@@ -5,6 +5,7 @@ setup:
 		&& echo -e "\n\n===== Finished Vim Setup GLHF =====\n\n"
 install:
 	brew install macvim --with-override-system-vim \
+		&& brew install node go cmake \
 		&& brew linkapps \
 		&& make setup
 uninstall:

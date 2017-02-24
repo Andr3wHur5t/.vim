@@ -17,7 +17,7 @@ set number
 set backspace=indent,eol,start
 
 " Save
-map <C-s> :w<CR>
+map <C-s> <CR>
 
 " Indentations Sane
 set tabstop=4
@@ -56,6 +56,9 @@ autocmd BufEnter * EnableStripWhitespaceOnSave
 
 " Multi-cursor
 Plug 'terryma/vim-multiple-cursors'
+
+" Code Completion
+Plug 'valloric/youcompleteme', { 'do': './install.py --clang-completer --gocode-completer --tern-completer' }
 
 " Coffee-Script Support
 Plug 'kchmck/vim-coffee-script'
