@@ -13,6 +13,14 @@ set noic
 " Line Numbers
 set number
 
+" Backspace
+set backspace=indent,eol,start
+
+" Indentations Sane
+set tabstop=4
+set shiftwidth=4
+set softtabstop=0 noexpandtab
+
 " Wrapping Configuration
 set textwidth=120
 set wrap
@@ -41,9 +49,6 @@ Plug 'terryma/vim-multiple-cursors'
 " Coffee-Script Support
 Plug 'kchmck/vim-coffee-script'
 filetype plugin indent on
-
-" Go Support
-Plug 'fatih/vim-go'
 
 " Load Plugins
 call plug#end()
