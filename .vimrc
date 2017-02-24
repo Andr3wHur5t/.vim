@@ -35,6 +35,9 @@ Plug 'tpope/vim-surround'
 Plug 'ntpeters/vim-better-whitespace'
 autocmd BufEnter * EnableStripWhitespaceOnSave
 
+" Multi-cursor
+Plug 'terryma/vim-multiple-cursors'
+
 " Coffee-Script Support
 Plug 'kchmck/vim-coffee-script'
 filetype plugin indent on
