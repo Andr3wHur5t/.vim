@@ -1,8 +1,10 @@
 # Install .vimrc file
 setup:
-	~/.vim/setup.sh
+	ln -sf ~/.vim/.vimrc ~/.vimrc
 install:
-	brew instal vim && make setup
+	brew install macvim --with-override-system-vim \
+		&& brew linkapps \
+		&& make setup
 clean:
 	rm -rf plugged/
 
