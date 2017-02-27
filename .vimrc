@@ -22,6 +22,12 @@ map <C-p> :enew<CR>
 " Save
 map <C-s> :w<CR>
 
+" Window Switch
+noremap <silent> <tab><left> :wincmd h<CR>
+noremap <silent> <tab><down> :wincmd j<CR>
+noremap <silent> <tab><up> :wincmd k<CR>
+noremap <silent> <tab><right> :wincmd l<CR>
+
 " Split Configuration
 set splitright
 
