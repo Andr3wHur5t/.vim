@@ -31,12 +31,16 @@ noremap <silent> <tab><right> :wincmd l<CR>
 " Split Configuration
 set splitright
 
+" Change Split To Vertical
+noremap <silent> <tab>m <c-w>t<c-w>H
+noremap <silent> <tab>M <c-w>t<c-w>K
+
 " Indentations Sane
 " set tabstop=4
 " set shiftwidth=4
 " set softtabstop=0 noexpandtab
 
-set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
+set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
 
 " Wrapping Configuration
 set textwidth=120
