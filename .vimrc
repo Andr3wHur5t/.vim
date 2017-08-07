@@ -16,6 +16,10 @@ set number
 " Backspace
 set backspace=indent,eol,start
 
+" Clipboard mode
+set pastetoggle=<F2>
+set clipboard=unnamedplus
+
 " Open New Buffer
 map <C-p> :enew<CR>
 
