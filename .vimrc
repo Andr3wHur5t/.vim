@@ -18,7 +18,8 @@ set backspace=indent,eol,start
 
 " Clipboard mode
 set pastetoggle=<F2>
-set clipboard=unnamedplus
+vmap ty "+y
+map op "+p
 
 " Open New Buffer
 map <C-p> :enew<CR>
