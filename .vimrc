@@ -80,6 +80,9 @@ autocmd BufEnter * EnableStripWhitespaceOnSave
 " Multi-cursor
 Plug 'terryma/vim-multiple-cursors'
 
+" Status Line
+Plug 'vim-airline/vim-airline'
+
 " Code Completion
 Plug 'valloric/youcompleteme', { 'do': './install.py --clang-completer --gocode-completer --tern-completer' }
 
