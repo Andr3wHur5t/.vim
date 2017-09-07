@@ -14,3 +14,5 @@ uninstall:
 		make clean
 clean:
 	rm -rf plugged/
+update:
+	git checkout master && git pull && $(MAKE) install
