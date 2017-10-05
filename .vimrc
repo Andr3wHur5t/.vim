@@ -18,14 +18,18 @@ set backspace=indent,eol,start
 
 " Clipboard mode
 set pastetoggle=<F2>
-vmap ty "+y
-map [p "+p
+
+" Tab Switch
+nnoremap <Tab>1 :tabprevious<CR>
+nnoremap <Tab>2 :tabnext<CR>
+nnoremap <silent> m<Tab>1 :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
+nnoremap <silent> m<Tab>2 :execute 'silent! tabmove ' . (tabpagenr()+1)<CR>
 
 " Window Switch
-noremap <silent> <tab><left> :wincmd h<CR>
-noremap <silent> <tab><down> :wincmd j<CR>
-noremap <silent> <tab><up> :wincmd k<CR>
-noremap <silent> <tab><right> :wincmd l<CR>
+noremap <silent> <Tab><left> :wincmd h<CR>
+noremap <silent> <Tab><down> :wincmd j<CR>
+noremap <silent> <Tab><up> :wincmd k<CR>
+noremap <silent> <Tab><right> :wincmd l<CR>
 
 " Re Render
 noremap <silent> <C-\> :redraw!<CR>
@@ -92,6 +96,22 @@ Plug 'othree/yajs.vim', { 'for': 'javascript' }
 Plug 'kchmck/vim-coffee-script'
 filetype plugin indent on
 
+" Auto Lint
+Plug 'w0rp/ale'
+nmap <F7> <Plug>(ale_lint)
+nmap <F8> <Plug>(ale_fix)
+
+let g:ale_fix_on_save = 0
+
+let g:ale_sign_error = '!!'
+let g:ale_sign_warning = '~~'
+let g:airline#extensions#ale#enabled = 1
+
+let g:ale_fixers = {
+\  'sh': ['shellcheck'],
+\  'vim': ['vint'],
+\}
+
 " Load Plugins
 call plug#end()
 
@@ -106,3 +126,9 @@ call plug#end()
 " Open New Buffer - :enew
 " Open Nerd Tree Split Right - s (on the file name)
 " Reverse Selected Text - '<,'>!gtac
+" Search and replace to flip cmd args and rename: %s/cmd(\(.\{-}\),\(.\{-}\))/cmd(\2,\1)/g
+" Paste from clipboard - "+p
+" Copy To Clipboard - "+y
+" Run On Every buffer: :bufdo execute "cmd"
+" Open Every Git File Containing Console.log in a tab: vim -p $(git grep --files-with-matches console.log *)
+"
