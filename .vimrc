@@ -96,6 +96,8 @@ Plug 'othree/yajs.vim', { 'for': 'javascript' }
 Plug 'kchmck/vim-coffee-script'
 filetype plugin indent on
 
+Plug 'b4b4r07/vim-hcl'
+
 " Auto Lint
 Plug 'w0rp/ale'
 nmap <F7> <Plug>(ale_lint)
