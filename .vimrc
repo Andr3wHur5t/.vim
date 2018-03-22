@@ -22,17 +22,20 @@ set backspace=indent,eol,start
 " Clipboard mode
 set pastetoggle=<F2>
 
-" Open New Buffer
-map <C-p> :enew<CR>
-
-" Save
-map <C-s> :w<CR>
+" Tab Switch
+nnoremap <Tab>1 :tabprevious<CR>
+nnoremap <Tab>2 :tabnext<CR>
+nnoremap <silent> m<Tab>1 :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
+nnoremap <silent> m<Tab>2 :execute 'silent! tabmove ' . (tabpagenr()+1)<CR>
 
 " Window Switch
-noremap <silent> <tab><left> :wincmd h<CR>
-noremap <silent> <tab><down> :wincmd j<CR>
-noremap <silent> <tab><up> :wincmd k<CR>
-noremap <silent> <tab><right> :wincmd l<CR>
+noremap <silent> <Tab><left> :wincmd h<CR>
+noremap <silent> <Tab><down> :wincmd j<CR>
+noremap <silent> <Tab><up> :wincmd k<CR>
+noremap <silent> <Tab><right> :wincmd l<CR>
+
+" Re Render
+noremap <silent> <C-\> :redraw!<CR>
 
 " Split Configuration
 set splitright
@@ -92,9 +95,14 @@ Plug 'terryma/vim-multiple-cursors'
 
 " Status Line
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+let g:airline_theme='simple'
 
 " Code Completion
 Plug 'valloric/youcompleteme', { 'do': './install.py --clang-completer --gocode-completer --tern-completer' }
+
+" ES6 Support
+Plug 'othree/yajs.vim', { 'for': 'javascript' }
 
 " Coffee-Script Support
 Plug 'kchmck/vim-coffee-script'
@@ -108,3 +116,18 @@ call plug#end()
 
 " NOTE: Call `:PlugInstall` to install plugins...
 
+
+"" Notes On Commands:
+"
+" Fix File Indent - gg=G
+" Select Code Block Contents - vi{
+" Select Code Block - va{
+" Open New Buffer - :enew
+" Open Nerd Tree Split Right - s (on the file name)
+" Reverse Selected Text - '<,'>!gtac
+" Search and replace to flip cmd args and rename: %s/cmd(\(.\{-}\),\(.\{-}\))/cmd(\2,\1)/g
+" Paste from clipboard - "+p
+" Copy To Clipboard - "+y
+" Run On Every buffer: :bufdo execute "cmd"
+" Open Every Git File Containing Console.log in a tab: vim -p $(git grep --files-with-matches console.log *)
+"
