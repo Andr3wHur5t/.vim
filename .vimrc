@@ -3,6 +3,9 @@ syntax enable
 let g:rehash256 = 1
 colorscheme molokai
 
+" Disable bells!
+set noerrorbells visualbell t_vb=
+
 " Spell Check (Thank God...)
 set spell spelllang=en_us
 set complete+=kspell
@@ -18,8 +21,6 @@ set backspace=indent,eol,start
 
 " Clipboard mode
 set pastetoggle=<F2>
-vmap ty "+y
-map op "+p
 
 " Open New Buffer
 map <C-p> :enew<CR>
@@ -67,6 +68,15 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 
+" Relative Line Numbers
+set number relativenumber
+
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
+
 " Git Diff Gutter
 Plug 'airblade/vim-gitgutter'
 
@@ -89,6 +99,9 @@ Plug 'valloric/youcompleteme', { 'do': './install.py --clang-completer --gocode-
 " Coffee-Script Support
 Plug 'kchmck/vim-coffee-script'
 filetype plugin indent on
+
+Plug 'b4b4r07/vim-hcl'
+Plug 'tomlion/vim-solidity'
 
 " Load Plugins
 call plug#end()
